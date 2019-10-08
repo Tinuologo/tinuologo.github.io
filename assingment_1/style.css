@@ -1,0 +1,27 @@
+body {
+  background-color: grey;
+}
+#header {
+  text-align: center;
+  background-color: black;
+  color: lightskyblue;
+}
+
+#block {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.block_experience {
+  font-style: italic;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bolder;
+  color: purple;
+  font-size: 20px;
+}
+
+img {
+  width: 240px;
+  height: 140px;
+}
