@@ -11,7 +11,6 @@
   <div class="container">
     <div class="wrapper">
       <div class="header">Test JSON page</div>
-      <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
       <button class="button" onclick="randomCountries()">Click me to populate list entries</button>
       <div class="changing_items">
         <ul class="instructions">
@@ -33,11 +32,9 @@
     </div>
   </div>
   <script>
-    /* N.B. - For your lab, use the variable "countries" now available on the window space */
+  sessionStorage.setItem("Country_Codes", JSON.stringify(countries))
 
-  
-
-    function randomCountries() {
+   function randomCountries() {
 
       country_codes = sessionStorage.getItem("Country_Codes")
       j_countrycodes = JSON.parse(country_codes)
@@ -316,11 +313,7 @@
       { "name": "Zambia", "code": "ZM" },
       { "name": "Zimbabwe", "code": "ZW" }
     ]
-    //console.log("List of countries in the world", countries);
-    //console.log(countries)
 
-
-    sessionStorage.setItem("Country_Codes", JSON.stringify(countries))
 
   </script>
 </body>
