@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +11,9 @@
   <div class="container">
     <div class="wrapper">
       <div class="header">Test JSON page</div>
-      <button class="button" onclick="loadData()">Load Some JSON</button>
-      <button class="button" onclick="console.log('You haven\'t written a function yet!');">Click me to replace list entries</button>
-      <div class="content">
+      <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
+      <button class="button" onclick="randomCountries()">Click me to populate list entries</button>
+      <div class="changing_items">
         <ul class="instructions">
           <li>Delete and re-clone the class repository</li>
           <li>Open <span class="code">lab_5_json.html</span> in your browser</li>
@@ -32,6 +33,44 @@
     </div>
   </div>
   <script>
+    /* N.B. - For your lab, use the variable "countries" now available on the window space */
+
+  
+
+    function randomCountries() {
+
+      country_codes = sessionStorage.getItem("Country_Codes")
+      j_countrycodes = JSON.parse(country_codes)
+      console.log(j_countrycodes)
+
+      country_list = "<ol>"
+
+      randomizeArray(j_countrycodes)
+
+      for (i=0; i < 50; i++) {
+         country_list += "<li>" + j_countrycodes[i].name + "</li>"
+      }
+
+      document.getElementsByClassName("changing_items")[0].innerHTML = country_list
+      
+    }
+      /**
+      * Shuffle Algorithm Taken From Stack OverFlow
+      * https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+      * Randomize array element order in-place.
+      * Using Durstenfeld shuffle algorithm.
+      * 
+      */
+    function randomizeArray(array) {
+          for (var i = array.length - 1; i > 0; i--) {
+              var j = Math.floor(Math.random() * (i + 1));
+              var temp = array[i];
+              array[i] = array[j];
+              array[j] = temp;
+        }
+     }
+
+
     const countries = [
       { "name": "Afghanistan", "code": "AF" },
       { "name": "Åland Islands", "code": "AX" },
@@ -277,7 +316,12 @@
       { "name": "Zambia", "code": "ZM" },
       { "name": "Zimbabwe", "code": "ZW" }
     ]
-    console.log("List of countries in the world", countries);
+    //console.log("List of countries in the world", countries);
+    //console.log(countries)
+
+
+    sessionStorage.setItem("Country_Codes", JSON.stringify(countries))
+
   </script>
 </body>
 
