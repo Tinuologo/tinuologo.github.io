@@ -67,7 +67,7 @@ h3 {
   list-style: disc;
 }
 
-.content {
+.changing_items {
   background: #fff;
   border: 2px dotted #444;
   flex-grow: 2;
