@@ -52,13 +52,11 @@
           "changing_items"
         )[0].innerHTML = country_list;
       }
-      /**
-       * Shuffle Algorithm Taken From Stack OverFlow
+      /*
+       * Algorithm Taken From Stack OverFlow
        * https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-       * Randomize array element order in-place.
-       * Using Durstenfeld shuffle algorithm.
-       *
        */
+       
       function randomizeArray(array) {
         for (var i = array.length - 1; i > 0; i--) {
           var j = Math.floor(Math.random() * (i + 1));
