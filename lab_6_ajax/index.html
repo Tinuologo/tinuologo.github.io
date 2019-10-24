@@ -13,16 +13,43 @@
       <div class="header">Test AJAX page</div>
       <button class="button" onclick="loadData()">Load Some JSON</button>
       <div class="content"></div>
+      <ul>
+      </ul>
       <div class="footer"></div>
     </div>
   </div>
   <script>
-    function loadData() {
+    function loadData(anything) { 
       fetch('ajax_sample.json')
-        .then(res => res.json())
-        .then(res => res.map(c => c.name))
-        .then(names => document.querySelector(".content").innerText = names);
-    }
+        .then(res => res.json()) 
+        .then(res => res.map(c => c.code + ': ' + c.name)) 
+        .then(codes => {
+          const stuff = codes.map((item) => {
+            console.log("i'm a demo!", item);
+            return item + " extra";
+          })
+
+          console.log('the returned values of a', stuff);
+
+          const instructions = document.querySelector('.content');
+          instructions.innerHTML = '';
+
+          for(let i = 0; i < 15; i++) {
+            const selectNumber = getRandomIntInclusive(0, 242);
+            let el = document.createElement("ul");
+            el.innerText = codes[selectNumber];
+
+            instructions.appendChild(el);
+      };
+    });
+  }
+
+  function getRandomIntInclusive(min, max) {
+              min = Math.ceil(min);
+              max = Math.floor(max);
+              // both min and max are inclusive
+              return Math.floor(Math.random() * (max - min + 1)) + min;
+          }
   </script>
 </body>
 
