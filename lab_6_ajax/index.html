@@ -22,11 +22,11 @@
         .then(res => res.map(c => c.code + ': ' + c.name)) 
         .then(codes => {
           const stuff = codes.map((item) => {
-            console.log("i'm a demo!", item);
-            return item + " extra";
+            console.log(item);
+            return item;
           })
 
-          console.log('the returned values of a', stuff);
+          console.log(stuff);
 
           const instructions = document.querySelector('.content');
           instructions.innerHTML = '';
