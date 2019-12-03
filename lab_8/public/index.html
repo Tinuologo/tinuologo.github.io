@@ -17,15 +17,25 @@
   </div>
   <script>
     function loadData() {
-      console.log('fetch'); // confirm code is running on click
+      console.log('fetch');
       fetch('/api')
         .then(res => res.json())
         .then(res => {
-          console.log(res); // logging step to check what we got
+          console.log(res);
           return res;
         })
-        .then(res => res.data.map(c => c.route_id))
-        .then(codes => document.querySelector(".content").innerText = codes);
+        .then(res => res.data)
+        .then(data => {
+          console.log(data);
+          makeListInHTML(data);
+        })
+    }
+    function makeListInHTML(array) {
+      let course_list = "<ol>";
+            for (let i = 0; i < array.length; i++) {
+              course_list += "<li>" + array[i] + "</li>";
+            }
+      document.querySelector('.content').innerHTML = course_list;
     }
   </script>
 </body>
