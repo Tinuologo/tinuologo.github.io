@@ -27,10 +27,10 @@
         .then(res => res.data)
         .then(data => {
           console.log(data);
-          makeListInHTML(data);
+          createList(data);
         })
     }
-    function makeListInHTML(array) {
+    function createList(array) {
       let course_list = "<ol>";
             for (let i = 0; i < array.length; i++) {
               course_list += "<li>" + array[i] + "</li>";
